@@ -1,0 +1,134 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fondo rosado para toda la página */
+body {
+  background-color: #ffe6f0;
+  color: #4a004a;
+  height: 100vh;
+  margin: 0;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden; /* Evitar scroll vertical en toda la página */
+}
+
+/* Título centrado */
+header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #d6336c;
+  text-shadow: 1px 1px 4px #9a0954;
+}
+
+/* Contenedor principal - scroll horizontal */
+#malla {
+  display: flex;
+  flex-direction: row;  /* semestres uno al lado del otro */
+  gap: 20px;
+  width: 100vw;
+  height: 80vh;         /* altura fija para evitar scroll vertical */
+  overflow-x: auto;     /* scroll horizontal */
+  overflow-y: hidden;   /* ocultar scroll vertical */
+  padding-bottom: 10px;
+  scrollbar-width: thin;  /* estilo scrollbar Firefox */
+}
+
+/* Scrollbar estilo para Chrome, Edge y Safari */
+#malla::-webkit-scrollbar {
+  height: 10px;
+}
+#malla::-webkit-scrollbar-thumb {
+  background: #d6336c;
+  border-radius: 10px;
+}
+#malla::-webkit-scrollbar-track {
+  background: #ffd6e8;
+  border-radius: 10px;
+}
+
+/* Cada semestre es una columna vertical */
+.semestre {
+  background: #ffc9de;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 12px rgba(214, 51, 108, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 280px;
+  max-width: 320px;
+  height: 100%;          /* ocupa toda la altura del contenedor */
+  flex-shrink: 0;        /* evita que se achique */
+  overflow-y: auto;      /* scroll vertical interno si hay muchos cursos */
+}
+
+/* Título semestre centrado */
+.semestre h2 {
+  color: #9a0954;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 1.6rem;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+/* Cursos */
+.curso {
+  background: #f8bbd0;
+  color: #660066;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(102, 0, 102, 0.3);
+  transition: all 0.3s ease;
+  user-select: none;
+  text-align: center;
+  width: 100%;
+  min-width: 0;
+  position: relative;
+}
+
+/* Hover */
+.curso:hover {
+  background: #e85c9b;
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(232, 92, 155, 0.6);
+}
+
+/* Desbloqueado */
+.curso.desbloqueado {
+  background: #ffaad4;
+  color: #730073;
+  box-shadow: 0 4px 8px rgba(115, 0, 115, 0.4);
+}
+
+/* Bloqueado */
+.curso.bloqueado {
+  background: #ffd6e8;
+  color: #b07a9e;
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+/* Aprobado */
+.curso.aprobado {
+  background: #6a0080;
+  color: #ddd;
+  text-decoration: line-through;
+  box-shadow: 0 0 12px #9a04a8;
+  cursor: default;
+}
